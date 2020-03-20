@@ -7,4 +7,3 @@ sudo apt-get clean
 sudo rm -rf /var/lib/apt/lists/*
 sudo rm -rf /var/cache/oracle-jdk8-installer
 java -version
-
