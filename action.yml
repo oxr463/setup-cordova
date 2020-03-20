@@ -1,0 +1,19 @@
+name: "Setup Cordova"
+description: "Set up your GitHub Actions workflow with Apache Cordova."
+author: "oxr463"
+branding:
+  color: black
+  icon: code
+
+inputs:
+  cordova-version:
+    description: Accepts either a version range or an exact version of Cordova to use
+    default: '9'
+  install-java:
+    description: Install Java
+    default: true
+
+runs:
+  using: 'node12'
+  main: 'lib/main.sh'
+
