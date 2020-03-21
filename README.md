@@ -14,14 +14,13 @@ Set up your GitHub Actions workflow with Apache Cordova.
 
 - name: Build
   run: |
-    cordova build android
+    cordova build --no-telemetry
 ```
 
 ## Acknowledgements
 
-Based on []().
+Based on [coturiv/setup-ionic](https://github.com/coturiv/setup-ionic).
 
 ## License
 
 SPDX: [MIT](LICENSE)
-
