@@ -17,7 +17,7 @@ Setup your GitHub Actions workflow with Apache Cordova.
 
 ## Acknowledgements
 
-Based on [coturiv/setup-ionic](https://github.com/coturiv/setup-ionic).
+Initially based on [coturiv/setup-ionic](https://github.com/coturiv/setup-ionic).
 
 ## License
 
