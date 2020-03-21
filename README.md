@@ -15,10 +15,14 @@ Setup your GitHub Actions workflow with Apache Cordova.
     cordova build --no-telemetry
 ```
 
-## Acknowledgements
+## Acknowledgement
 
 Initially based on [coturiv/setup-ionic](https://github.com/coturiv/setup-ionic).
 
 ## License
 
 SPDX: [MIT](LICENSE)
+
+## Reference
+
+- [Hello world docker action](https://github.com/actions/hello-world-docker-action)
