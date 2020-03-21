@@ -17,8 +17,8 @@ install_openjdk() {
 
 install_cordova() {
   # Fix permissions
-  sudo chown -R $USER:$GROUP ~/.npm \
-                             ~/.config
+  sudo chown -R "$USER:$GROUP" ~/.npm \
+                               ~/.config
 
   # Append version number to package name
   CORDOVA_PKG="cordova"
