@@ -7,4 +7,4 @@ branding:
 
 runs:
   using: 'node12'
-  main: './setup-cordova.sh'
+  main: '/bin/sh ./setup-cordova.sh'
