@@ -1,5 +1,5 @@
 name: "Setup Cordova"
-description: "Set up your GitHub Actions workflow with Apache Cordova."
+description: "Setup your GitHub Actions workflow with Apache Cordova."
 author: "oxr463"
 branding:
   color: black
@@ -9,11 +9,10 @@ inputs:
   cordova-version:
     description: Accepts either a version range or an exact version of Cordova to use
     default: '9'
-  install-java:
-    description: Install Java
+  install-openjdk:
+    description: Installs OpenJDK 8 for Android
     default: true
 
 runs:
   using: 'node12'
-  main: 'lib/main.sh'
-
+  main: './setup-cordova.sh'
