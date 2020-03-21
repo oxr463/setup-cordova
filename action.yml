@@ -6,5 +6,5 @@ branding:
   icon: code
 
 runs:
-  using: 'node12'
-  main: '/bin/sh ./setup-cordova.sh'
+  using: "node12"
+  main: "/bin/sh ./setup-cordova.sh"
