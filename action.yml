@@ -6,5 +6,5 @@ branding:
   icon: smartphone
 
 runs:
-  using: "node12"
-  main: "./setup-cordova.sh"
+  using: "docker"
+  image: "Dockerfile"
