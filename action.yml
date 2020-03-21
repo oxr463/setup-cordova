@@ -5,14 +5,6 @@ branding:
   color: black
   icon: code
 
-inputs:
-  cordova-version:
-    description: Accepts either a version range or an exact version of Cordova to use
-    default: '9'
-  install-openjdk:
-    description: Installs OpenJDK 8 for Android
-    default: true
-
 runs:
   using: 'node12'
   main: './setup-cordova.sh'
