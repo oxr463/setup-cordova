@@ -3,7 +3,7 @@ description: "Setup your GitHub Actions workflow with Apache Cordova."
 author: "oxr463"
 branding:
   color: black
-  icon: code
+  icon: smartphone
 
 runs:
   using: "node12"
