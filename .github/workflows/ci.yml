@@ -1,0 +1,20 @@
+name: "CI"
+
+on:
+  push: {branches: master}
+  pull_request: {branches: master}
+  repository_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v1
+    - name: Use oxr463/setup-cordova
+      uses: ./
+    - name: Run cordova hello
+      run: |
+        cordova create hello com.example.hello HelloWorld
+        cd hello
+        cordova platform add android
+        cordova build
