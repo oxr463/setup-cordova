@@ -22,7 +22,7 @@ install_cordova() {
 
   # Append version number to package name
   CORDOVA_PKG="cordova"
-  if [ -z "${CORDOVA_VERSION+x}" ]; then
+  if [ -n "${CORDOVA_VERSION+x}" ]; then
     CORDOVA_PKG="${CORDOVA_PKG}@${CORDOVA_VERSION}"    
   fi
 
