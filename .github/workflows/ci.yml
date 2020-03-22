@@ -12,9 +12,9 @@ jobs:
     - uses: actions/checkout@v1
     - name: Use oxr463/setup-cordova
       uses: ./
-    - name: Run cordova hello
-      run: |
-        cordova create hello com.example.hello HelloWorld
-        cd hello
-        cordova platform add android
-        cordova build
+      with:
+        cordova_exec: |
+          cordova create hello com.example.hello HelloWorld && \
+          cd hello && \
+          cordova platform add android && \
+          cordova build
