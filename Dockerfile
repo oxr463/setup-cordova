@@ -7,6 +7,4 @@ RUN apk update && apk upgrade && \
 
 COPY entrypoint.sh /usr/src/entrypoint.sh
 
-ENTRYPOINT ["/bin/sh"]
-
-CMD ["/usr/src/entrypoint.sh"]
+ENTRYPOINT ["/usr/src/entrypoint.sh"]
