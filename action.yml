@@ -8,3 +8,5 @@ branding:
 runs:
   using: "docker"
   image: "Dockerfile"
+  args:
+    - ${{ inputs.cordova_exec }}
