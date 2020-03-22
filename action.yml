@@ -1,5 +1,9 @@
 name: "Setup Cordova"
 description: "Setup your GitHub Actions workflow with Apache Cordova."
+inputs:
+  cordova_exec:
+    description: "Apache Cordova command to execute"
+    required: true
 author: "oxr463"
 branding:
   color: black
