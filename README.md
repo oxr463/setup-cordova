@@ -9,10 +9,10 @@ Setup your GitHub Actions workflow with Apache Cordova.
 ```yaml
 - name: Use oxr463/setup-cordova
   uses: oxr463/setup-cordova@v1
-
-- name: Build
-  run: |
-    cordova build --no-telemetry
+  with:
+    cordova_exec: |
+          cordova platform add android && \
+          cordova build --no-telemetry
 ```
 
 ## Acknowledgement
