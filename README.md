@@ -10,9 +10,9 @@ Setup your GitHub Actions workflow with Apache Cordova.
 - name: Use oxr463/setup-cordova
   uses: oxr463/setup-cordova@0.0.1
   with:
-    cordova_exec: |
-          cordova platform add android && \
-          cordova build --no-telemetry
+    exec: |
+      cordova platform add android && \
+      cordova build --no-telemetry
 ```
 
 ## Acknowledgement
