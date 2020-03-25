@@ -1,7 +1,7 @@
 name: "Setup Cordova"
 description: "Setup your GitHub Actions workflow with Apache Cordova."
 inputs:
-  cordova_exec:
+  exec:
     description: "Apache Cordova command to execute"
     required: true
 author: "oxr463"
@@ -13,4 +13,4 @@ runs:
   using: "docker"
   image: "Dockerfile"
   args:
-    - ${{ inputs.cordova_exec }}
+    - ${{ inputs.exec }}
