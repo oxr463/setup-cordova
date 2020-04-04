@@ -21,7 +21,7 @@ Initially based on [coturiv/setup-ionic](https://github.com/coturiv/setup-ionic)
 
 ## License
 
-SPDX: [MIT](LICENSE)
+SPDX-License-Identifier: [MIT](LICENSE)
 
 ## Reference
 
