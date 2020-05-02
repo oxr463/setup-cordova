@@ -18,4 +18,5 @@ jobs:
           cordova create hello com.example.hello HelloWorld && \
           cd hello && \
           cordova platform add android && \
-          cordova build
+          cordova build --no-telemetry && \
+          cp "$(find . -name '*.apk') .
