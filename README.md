@@ -12,7 +12,8 @@ Setup your GitHub Actions workflow with Apache Cordova.
   with:
     exec: |
       cordova platform add android && \
-      cordova build --no-telemetry
+      cordova build --no-telemetry && \
+      cp "$(find . -name '*.apk')" .
 ```
 
 ## Acknowledgement
