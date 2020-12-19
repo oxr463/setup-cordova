@@ -27,3 +27,7 @@ SPDX-License-Identifier: [MIT](LICENSE)
 ## Reference
 
 - [Hello world docker action](https://github.com/actions/hello-world-docker-action)
+
+## See Also
+
+- [Setup Leiningen](https://github.com/oxr463/setup-leiningen)
