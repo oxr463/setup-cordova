@@ -4,6 +4,8 @@
 
 Setup your GitHub Actions workflow with Apache Cordova.
 
+**Note: Since this runs in a Linux-based Docker image, Xcode is not available for iOS builds.**
+
 ## Example
 
 ```yaml
