@@ -1,6 +1,6 @@
 ## setup-cordova
 
-[![GitHub Actions](https://img.shields.io/github/workflow/status/oxr463/setup-cordova/Continuous%20Integration?style=flat-square)](https://github.com/oxr463/setup-cordova/actions)
+[![GitHub Actions](https://img.shields.io/github/actions/workflow/status/oxr463/setup-cordova/main.yml?branch=master&style=flat-square)](https://github.com/oxr463/setup-cordova/actions)
 
 Setup your GitHub Actions workflow with Apache Cordova.
 
