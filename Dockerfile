@@ -27,11 +27,13 @@ RUN mkdir -p ${ANDROID_HOME}/cmdline-tools && \
     mv ${ANDROID_HOME}/cmdline-tools/cmdline-tools ${ANDROID_HOME}/cmdline-tools/latest && \
     rm /tmp/cmdline-tools.zip
 
-# Accept licenses and install a baseline; the Android Gradle Plugin
-# auto-downloads whatever specific platform/build-tools version the
-# project's build.gradle asks for once licenses are accepted.
+# AGP's auto-download doesn't kick in here, so install explicitly.
+# cordova-android tracks the latest Android API level on npm (36 as
+# of this writing) independent of anything pinned in this Dockerfile -
+# if a future cordova-android bump changes what it asks for, these
+# versions need to move with it.
 RUN yes | sdkmanager --licenses > /dev/null && \
-    sdkmanager --install "platform-tools" > /dev/null
+    sdkmanager --install "platform-tools" "platforms;android-36" "build-tools;36.0.0" > /dev/null
 
 RUN npm install -g cordova
 
