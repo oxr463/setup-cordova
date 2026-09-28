@@ -5,7 +5,9 @@ ENV ANDROID_SDK_ROOT=${ANDROID_HOME}
 ENV PATH=${ANDROID_HOME}/cmdline-tools/latest/bin:${ANDROID_HOME}/platform-tools:${PATH}
 
 RUN apt-get update && \
-    apt-get install -y --no-install-recommends curl unzip nodejs npm && \
+    apt-get install -y --no-install-recommends curl unzip ca-certificates gnupg && \
+    curl -fsSL https://deb.nodesource.com/setup_20.x | bash - && \
+    apt-get install -y --no-install-recommends nodejs && \
     rm -rf /var/lib/apt/lists/*
 
 RUN mkdir -p ${ANDROID_HOME}/cmdline-tools && \
