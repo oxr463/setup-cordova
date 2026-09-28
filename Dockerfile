@@ -1,10 +1,23 @@
-FROM runmymind/docker-android-sdk:alpine-standalone
+FROM eclipse-temurin:17-jdk-jammy
 
-RUN apk update && apk upgrade && \
-    apk add gradle npm openjdk8 && \
-    npm install -g cordova
+ENV ANDROID_HOME=/opt/android-sdk
+ENV ANDROID_SDK_ROOT=${ANDROID_HOME}
+ENV PATH=${ANDROID_HOME}/cmdline-tools/latest/bin:${ANDROID_HOME}/platform-tools:${PATH}
 
-ENV JAVA_HOME=/usr/lib/jvm/java-8-openjdk
+RUN apt-get update && \
+    apt-get install -y --no-install-recommends curl unzip nodejs npm && \
+    rm -rf /var/lib/apt/lists/*
+
+RUN mkdir -p ${ANDROID_HOME}/cmdline-tools && \
+    curl -fsSL -o /tmp/cmdline-tools.zip https://dl.google.com/android/repository/commandlinetools-linux-11076708_latest.zip && \
+    unzip -q /tmp/cmdline-tools.zip -d ${ANDROID_HOME}/cmdline-tools && \
+    mv ${ANDROID_HOME}/cmdline-tools/cmdline-tools ${ANDROID_HOME}/cmdline-tools/latest && \
+    rm /tmp/cmdline-tools.zip
+
+RUN yes | sdkmanager --licenses > /dev/null && \
+    sdkmanager --install "platform-tools" "platforms;android-34" "build-tools;34.0.0" > /dev/null
+
+RUN npm install -g cordova
 
 COPY entrypoint.sh /usr/src/entrypoint.sh
 
