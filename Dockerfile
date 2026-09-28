@@ -5,7 +5,7 @@ ENV ANDROID_SDK_ROOT=${ANDROID_HOME}
 ENV PATH=${ANDROID_HOME}/cmdline-tools/latest/bin:${ANDROID_HOME}/platform-tools:${PATH}
 
 RUN apt-get update && \
-    apt-get install -y --no-install-recommends curl unzip ca-certificates gnupg && \
+    apt-get install -y --no-install-recommends curl unzip ca-certificates gnupg gradle && \
     curl -fsSL https://deb.nodesource.com/setup_20.x | bash - && \
     apt-get install -y --no-install-recommends nodejs && \
     rm -rf /var/lib/apt/lists/*
@@ -16,8 +16,11 @@ RUN mkdir -p ${ANDROID_HOME}/cmdline-tools && \
     mv ${ANDROID_HOME}/cmdline-tools/cmdline-tools ${ANDROID_HOME}/cmdline-tools/latest && \
     rm /tmp/cmdline-tools.zip
 
+# Accept licenses and install a baseline; the Android Gradle Plugin
+# auto-downloads whatever specific platform/build-tools version the
+# project's build.gradle asks for once licenses are accepted.
 RUN yes | sdkmanager --licenses > /dev/null && \
-    sdkmanager --install "platform-tools" "platforms;android-34" "build-tools;34.0.0" > /dev/null
+    sdkmanager --install "platform-tools" > /dev/null
 
 RUN npm install -g cordova
 
