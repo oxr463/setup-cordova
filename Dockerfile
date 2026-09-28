@@ -2,13 +2,24 @@ FROM eclipse-temurin:17-jdk-jammy
 
 ENV ANDROID_HOME=/opt/android-sdk
 ENV ANDROID_SDK_ROOT=${ANDROID_HOME}
-ENV PATH=${ANDROID_HOME}/cmdline-tools/latest/bin:${ANDROID_HOME}/platform-tools:${PATH}
+ENV GRADLE_HOME=/opt/gradle
+ENV PATH=${ANDROID_HOME}/cmdline-tools/latest/bin:${ANDROID_HOME}/platform-tools:${GRADLE_HOME}/bin:${PATH}
 
 RUN apt-get update && \
-    apt-get install -y --no-install-recommends curl unzip ca-certificates gnupg gradle && \
+    apt-get install -y --no-install-recommends curl unzip ca-certificates gnupg && \
     curl -fsSL https://deb.nodesource.com/setup_20.x | bash - && \
     apt-get install -y --no-install-recommends nodejs && \
     rm -rf /var/lib/apt/lists/*
+
+# Ubuntu's apt gradle package (4.4.1) predates JDK 17 support entirely
+# and can't even bootstrap a newer wrapper under it - install a
+# current Gradle release directly instead. Only used to bootstrap
+# cordova's own gradlew, which then pulls whichever exact version the
+# generated Android project actually declares.
+RUN curl -fsSL -o /tmp/gradle.zip https://services.gradle.org/distributions/gradle-8.14.2-bin.zip && \
+    unzip -q /tmp/gradle.zip -d /opt && \
+    mv /opt/gradle-8.14.2 ${GRADLE_HOME} && \
+    rm /tmp/gradle.zip
 
 RUN mkdir -p ${ANDROID_HOME}/cmdline-tools && \
     curl -fsSL -o /tmp/cmdline-tools.zip https://dl.google.com/android/repository/commandlinetools-linux-11076708_latest.zip && \
